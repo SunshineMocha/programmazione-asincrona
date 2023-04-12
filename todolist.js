@@ -9,7 +9,11 @@ class ToDoList{
     }
 
     removeTodo(todo){
-
+        const index = this.toDoArray.indexOf(ToDo);
+        if (index >= 0) {
+            this.title.splice(index,1);
+        }
+        displayToDos(ToDoList)
     }
 
     sortByTitle(){
@@ -25,7 +29,7 @@ class ToDoList{
     }
 
     static fromObjArray(title, objectArray) {
-        const newToDoList = new ToDoList(`listabase`);
+        const newToDoList = new ToDoList(`My ToDo list`);
         for (let i = 0; i < objectArray.length; i++) {
             const todoObj = objectArray[i];
             const newTodo = ToDo.fromToDoObj(todoObj);
@@ -33,5 +37,4 @@ class ToDoList{
         }
         return newToDoList;
     }
-
 }

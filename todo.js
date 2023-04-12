@@ -14,11 +14,10 @@ class ToDo{
     }
 
     set creationDate(newDate){
-
     }
 
     compareByTitle(todo2){
-
+        return string1.localeCompare(string2) * - 1;
     }
 
     compareByCreationDate(todo2){
@@ -32,13 +31,6 @@ class ToDo{
 }
 
 /*
-
-COMPITI: creare account mockapi.io
-Sign up: GitHub
-id
-title String
-creationDate Date
-isCompleted boolean
 
 compiti
 todo e todolist
