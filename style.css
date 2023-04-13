@@ -1,52 +1,53 @@
 body{
-    width: 90vw;
+    /* width: 90vw;
     height: 90vh;
-    background: url(https://www.pixelstalk.net/wp-content/uploads/images6/Splatoon-Wallpaper-HD-Free-download.jpg) no-repeat center center fixed;
     font-weight: bold;
     font-size: x-large;
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-content: space-evenly;
+    align-content: space-evenly; */
 }
 .main{
-    display: flex;
+    /*display: flex;
     flex-direction: column;
-    justify-items: center;
+    justify-items: center;*/
 }
 .todo-li{
-    text-align: center;
-    width: 25%;
     display: flex;
+    text-align: center;
+    /*width: 25%;*/
     flex-direction: column;
     justify-items:center;
     border-style: solid;
     border-width: 1px;
-    border-radius: 80px;
-    align-items: center;
-    background-color: rgb(0, 255, 0);
+    /* align-items: center; */
 }
 .todo-title{
-    font-weight: bold;
-    font-size: x-large;
+    /*font-weight: bold;
+    font-size: x-large;*/
 }
 .todo-date{
     color: #515153;
 }
 .todo-btn{
-    border-radius: 80px;
-    width: 20%;
-    background: rgb(35, 208, 252)
+    /*width: 20%;*/
 }
 .addNew{
-    width: 20%;
+    /*width: 20%;
     align-self: center;
     border-style: solid;
-    border-width: 2px;
-    border-radius: 80px;
-    background-color: rgb(255, 0, 149);
+    border-width: 2px;*/
 }
-.addBtn{
-    border-radius: 10px;
-    background: rgb(35, 208, 252)
+.completed{
+    border-color: green;
+    border-width: 8px;
+}
+.todo-Object{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-items:center;
+    border-style: solid;
+    border-width: 1px;
 }
