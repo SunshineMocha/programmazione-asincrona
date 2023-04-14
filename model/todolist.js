@@ -10,7 +10,7 @@ class TodoList{
 
     removeTodo(todo){
         this.todoArray = this.todoArray.filter((element) => element !== todo);
-        displayTodos();
+        displayTodos3();
     }
 
     sortByTitle(){
@@ -23,7 +23,7 @@ class TodoList{
 
     completeTodo(todo){
         todo.isCompleted = true;
-        displayTodos();
+        displayTodos3();
     }
 
     static fromObjectArray(title, objectArray) {
