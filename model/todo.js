@@ -40,5 +40,13 @@ class Todo {
         return newTodo;
     }
 
-
+    toDoModel(){
+        const dbModel = {
+            title: this.title,
+            creationDate: this._creationDate,
+            isCompleted: this.isCompleted,
+            id: this.id,
+        }
+        return toDoModel
+    }
 }

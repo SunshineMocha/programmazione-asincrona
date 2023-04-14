@@ -5,6 +5,17 @@ class DataService {
             .then(resp => resp.json());
     }
 
+    static putTodo(todo) {
+        const jsonTodo = JSON.stringify(todo);
+        console.log('sono nella put', todo);
+        return fetch(`https://643694108205915d34f74640.mockapi.io/todos/` + todo.id, { method: `PUT`, body: jsonTodo, headers: {'content-type':'application/json'}})
+            .then(resp => resp.json());
+    }
+
+    static deleteTodo(todo) {
+        return fetch(`https://643694108205915d34f74640.mockapi.io/todos/` + todo.id, { method: `DELETE` })
+            .then(resp => resp.json());
+    }
 }
 
     // static getTodos(callback) { // linea 1 app.js => chiamo la get e dico di stampare. funzione inutile, poco leggibile
@@ -19,10 +30,6 @@ class DataService {
 
     // }
 
-    // static putTodo(todo){
+    
 
-    // }
-
-    // static deleteTodo(todo){
-
-    // }
+    

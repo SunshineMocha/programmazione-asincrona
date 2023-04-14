@@ -1,10 +1,10 @@
 let superList = new TodoList('lista super figa');
 
-displayTodos3();
+displayTodos();
 
 DataService.getTodos().then(data =>{
     fillTodoArrayFromServer(data);
-    displayTodos3();
+    displayTodos();
 })
 
 function fillTodoArrayFromServer(data){
@@ -15,72 +15,73 @@ function fillTodoArrayFromServer(data){
     }
 }
 
-// function displayTodos(){
-//     const todoListTitle = document.getElementById('list-name');
-//     const todoListUl = document.getElementById('todo-list');
+function displayTodos(){
+    const todoListTitle = document.getElementById('list-name');
+    const todoListUl = document.getElementById('todo-list');
 
 
-//     const titleNode = document.createTextNode(superList.title);
-//     todoListTitle.innerHTML = '';
-//     todoListTitle.appendChild(titleNode);
+    const titleNode = document.createTextNode(superList.title);
+    todoListTitle.innerHTML = '';
+    todoListTitle.appendChild(titleNode);
     
-//     todoListUl.innerHTML = '';
+    todoListUl.innerHTML = '';
 
-//     for (let i = 0; i < superList.todoArray.length; i++) {
-//         const todo = superList.todoArray[i];
-//         const newLi = document.createElement('li');
-//         newLi.classList.add('todo-li');
+    for (let i = 0; i < superList.todoArray.length; i++) {
+        const todo = superList.todoArray[i];
+        const newLi = document.createElement('li');
+        newLi.classList.add('todo-li');
 
-//         // if(todo.isCompleted){
-//         //     newLi.style.borderColor = `green`;
-//         //     newLi.style.borderWidth = `8px`;
-//         // }
-
-//         if (todo.isCompleted) {
-//             newLi.classList.add(`completed`);
-//         }
+        if (todo.isCompleted) {
+            newLi.classList.add(`completed`);
+        }
         
-//         const titleSpan= document.createElement('span');
-//         titleSpan.classList.add('todo-title');
+        const titleSpan= document.createElement('span');
+        titleSpan.classList.add('todo-title');
 
-//         const dateSpan = document.createElement('span');
-//         dateSpan.classList.add('todo-date');
+        const dateSpan = document.createElement('span');
+        dateSpan.classList.add('todo-date');
 
-//         const titleNode = document.createTextNode(todo.title);
-//         const dateNode = document.createTextNode(todo.creationDate);
+        const titleNode = document.createTextNode(todo.title);
+        const dateNode = document.createTextNode(todo.creationDate);
 
-//         titleSpan.appendChild(titleNode);
-//         dateSpan.appendChild(dateNode);
+        titleSpan.appendChild(titleNode);
+        dateSpan.appendChild(dateNode);
         
-//         newLi.appendChild(titleSpan);
-//         newLi.append(dateSpan);
+        newLi.appendChild(titleSpan);
+        newLi.append(dateSpan);
 
-//         const completeBtn = document.createElement('button');
-//         completeBtn.addEventListener('click',(event)=> {
-//             superList.completeTodo(todo);
-//             displayTodos();
-//         });
+        const completeBtn = document.createElement('button');
+        completeBtn.addEventListener('click',(event)=> {
+            superList.completeTodo(todo);
+            DataService.putTodo(todo).then(updatedTodo => {             
+                displayTodos();
+            })
+            
+        });
 
-//         const removeBtn = document.createElement('button');
-//         removeBtn.addEventListener('click',(event)=> {
-//             superList.removeTodo(todo);
-//             displayTodos();
-//         });
+        const removeBtn = document.createElement('button');
+        removeBtn.addEventListener('click',(event)=> {
+            DataService.deleteTodo(todo).then(removedTodo => {
+            superList.removeTodo(todo);
+            displayTodos();
 
-//         const titleComplete = document.createTextNode('Complete');
-//         const titleRemove = document.createTextNode('Remove');
+
+        })});
+
+        const titleComplete = document.createTextNode('Complete');
+        const titleRemove = document.createTextNode('Remove');
         
-//         completeBtn.appendChild(titleComplete);
-//         removeBtn.appendChild(titleRemove);
+        completeBtn.appendChild(titleComplete);
+        removeBtn.appendChild(titleRemove);
         
-//         newLi.appendChild(completeBtn);
-//         newLi.appendChild(removeBtn);
+        newLi.appendChild(completeBtn);
+        newLi.appendChild(removeBtn);
         
 
-//         todoListUl.appendChild(newLi);
+        todoListUl.appendChild(newLi);
 
-//     }
-// }
+    }
+}
 
 function displayTodos3(){
 
@@ -158,26 +159,21 @@ function createDeleteButton(todo) {
 
 function orderByTitle(){
     superList.sortByTitle();
-    displayTodos2();
+    displayTodos();
 }
 
 function orderByCreationDate(){
     superList.sortByCreationDate();
-    displayTodos2();
+    displayTodos();
 }
 
 
 
 /*
-
 Compiti:
-
-- digerire entrambi i modi 
-
-- metodo non piu grosso di schermata, emplementare tuti i modi: displayTodos2 displaystodos3
+    - metodo non piu grosso di schermata, emplementare tuti i modi: displayTodos2 displaystodos3
     prima versione usare il template literal (html in stringa)
     seconda versione spezzare funzione in funzioni piu piccole
-
 */
 
 function displayTodos2(){
