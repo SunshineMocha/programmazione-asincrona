@@ -23,6 +23,7 @@ class TodoList{
 
     completeTodo(todo){
         todo.isCompleted = true;
+        displayTodos();
     }
 
     static fromObjectArray(title, objectArray) {

@@ -144,9 +144,14 @@ function displayTodos(){
         <button class="remove-btn" id="remove-btn${i}">Rimuovi</button>
         </li>`
         
+        if (superList.isCompleted) {
+            document.getElementById("todo-Object").style.borderColor = `green`;
+            document.getElementById("todo-Object").style.borderWidth = `8px`;
+        }
+
     }
     for (let i = 0; i < superList.todoArray.length; i++) {
         const todo = superList.todoArray[i];
-        document.getElementById("remove-btn" + i).addEventListener('click', (todo) => superList.removeTodo(superList.todoArray[i]));
+        document.getElementById("remove-btn" + i).addEventListener('click', (todo) => superList.removeTodo());
     }
 }
