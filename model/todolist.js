@@ -10,6 +10,7 @@ class TodoList{
 
     removeTodo(todo){
         this.todoArray = this.todoArray.filter((element) => element !== todo);
+        displayTodos();
     }
 
     sortByTitle(){

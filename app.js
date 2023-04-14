@@ -136,15 +136,17 @@ function displayTodos(){
 
     for (let i = 0; i < superList.todoArray.length; i++) {
         const todo = superList.todoArray[i];
+        
         todoListTitle.innerHTML+= `<li class="todo-Object">
         ${todo.title} <br> ${todo.creationDate} <br>
+        
         <button class="complete-btn" id="complete-btn" onclick="superList.completeTodo()">Completa</button> <br>
         <button class="remove-btn" id="remove-btn${i}">Rimuovi</button>
         </li>`
+        
     }
-    //2ndo for per il passaggio valori
     for (let i = 0; i < superList.todoArray.length; i++) {
         const todo = superList.todoArray[i];
-        document.getElementById("remove-btn" + i).addEventListener('click', (element) => superList.removeTodo(todo));
+        document.getElementById("remove-btn" + i).addEventListener('click', (todo) => superList.removeTodo(superList.todoArray[i]));
     }
 }
